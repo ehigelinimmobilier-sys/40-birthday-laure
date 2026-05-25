@@ -1,4 +1,4 @@
-// Reveal on scroll — léger, sans dépendance.
+// Reveal on scroll, léger, sans dépendance.
 (() => {
   const items = document.querySelectorAll('[data-reveal]');
   if (!('IntersectionObserver' in window) || !items.length) {

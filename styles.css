@@ -1,5 +1,5 @@
 /* ============================================
-   LAURE — Numéro 40
+   LAURE, Numéro 40
    Magazine éditorial · paper-white & encre
    ============================================ */
 
@@ -127,7 +127,7 @@ code {
   margin: 0 0 18px;
 }
 .kicker::before {
-  content: "—— ";
+  content: "// ";
   letter-spacing: 0;
 }
 
