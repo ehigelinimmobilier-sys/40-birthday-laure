@@ -29,7 +29,7 @@
   /* ---- Revelation ---- */
   function isForced() {
     try {
-      return new URLSearchParams(location.search).has('reveal')
+      return new URLSearchParams(location.search).has('copine')
         || sessionStorage.getItem(PREVIEW_KEY) === '1';
     } catch { return false; }
   }

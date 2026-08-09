@@ -21,11 +21,11 @@ champagne froid, platine. Bodoni Moda, Jost, IBM Plex Mono.
 3. **Le 15 août à 9h00** (heure du téléphone) : tout se dévoile automatiquement,
    adresses, détails, notes de la maison, et la finale signée Elisabeth.
 
-## Prévisualiser le mode révélé (pour Elisabeth)
+## Voir le mode révélé avant le jour J
 
 Deux moyens, invisibles pour Laure :
 
-- Ajouter `?reveal=1` à l'URL
+- Ajouter `?copine` à l'URL (le lien à partager pour montrer le programme complet)
 - Taper `laure` au clavier (ordinateur uniquement)
 
 ## Personnaliser
