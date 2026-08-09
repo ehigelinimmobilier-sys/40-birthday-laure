@@ -715,39 +715,7 @@ button {
   padding: clamp(30px, 7vw, 46px) clamp(24px, 5vw, 40px);
 }
 
-.finale__title {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(30px, 7vw, 40px);
-  margin: 0 0 24px;
-}
-
-.finale__order {
-  list-style: none;
-  margin: 0 auto 8px;
-  padding: 0;
-  max-width: 400px;
-  text-align: left;
-}
-.finale__order li {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--ligne);
-  font-size: 15.5px;
-}
-.finale__order li:first-child { border-top: 1px solid var(--ligne); }
-.finale__order span {
-  font-weight: 600;
-  font-size: 12.5px;
-  letter-spacing: .06em;
-  color: var(--sauge);
-  flex: none;
-  width: 48px;
-}
-
-.maison-note--finale { max-width: 46ch; }
+.maison-note--finale { max-width: 46ch; margin-top: 0; }
 .maison-note--finale p:not(.maison-note__sign) { font-size: 20px; }
 
 
