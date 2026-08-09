@@ -3,293 +3,378 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LAURE, Numéro 40</title>
-<meta name="description" content="Édition spéciale, tirage unique. Le magazine d'une vie pour les 40 ans de Laure." />
+<title>Pour Laure · 15 août 2026</title>
+<meta name="description" content="Menu du jour, à découvrir moment par moment. Saint-Germain-des-Prés, 15 août 2026." />
+<meta name="theme-color" content="#f2ead8" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+<!-- ============ PROGRESS BAR ============ -->
+<div class="topbar" role="status" aria-live="polite">
+  <span class="topbar__brand">Pour Laure</span>
+  <span class="topbar__meta"><span id="progress-count">0</span> / 7 dévoilé</span>
+</div>
+
 <!-- ============ COUVERTURE ============ -->
-<header class="cover" id="cover">
-  <div class="cover__topbar">
-    <span class="cover__masthead">L A U R E</span>
-    <span class="cover__issue">N°&nbsp;40 · ÉDITION UNIQUE · MAI 2026</span>
-    <span class="cover__price">tirage&nbsp;: un seul exemplaire</span>
+<header class="hero">
+  <p class="hero__eyebrow">Édition privée · Un exemplaire</p>
+
+  <h1 class="hero__title">
+    <span class="hero__pre">le menu du</span>
+    <span class="hero__date">quinze août</span>
+    <span class="hero__post">deux mille vingt-six</span>
+  </h1>
+
+  <div class="hero__seal" aria-hidden="true">
+    <svg viewBox="0 0 120 120" width="120" height="120">
+      <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="60" cy="60" r="48" fill="none" stroke="currentColor" stroke-width=".6"/>
+      <text x="60" y="52" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="26" font-weight="700" fill="currentColor">L</text>
+      <text x="60" y="76" text-anchor="middle" font-family="Fraunces, serif" font-size="10" letter-spacing="4" fill="currentColor">·40·</text>
+    </svg>
   </div>
 
-  <div class="cover__grid">
-    <div class="cover__left">
-      <p class="kicker">Édition anniversaire</p>
-      <h1 class="cover__title">
-        Quarante.
-      </h1>
-      <p class="cover__deck">
-        Un magazine entier consacré à une seule personne. Parce que certaines vies méritent une couverture, et certaines amitiés méritent un dossier de quarante pages.
-      </p>
-      <ul class="cover__lines">
-        <li><span class="num">01</span>&nbsp;&nbsp;L'édito d'Elisabeth, page&nbsp;2</li>
-        <li><span class="num">02</span>&nbsp;&nbsp;L'année 1986, archives, page&nbsp;5</li>
-        <li><span class="num">03</span>&nbsp;&nbsp;Quarante choses sur Laure, page&nbsp;9</li>
-        <li><span class="num">04</span>&nbsp;&nbsp;Manifeste pour la suite, page&nbsp;17</li>
-        <li><span class="num">05</span>&nbsp;&nbsp;Lettres reçues, page&nbsp;23</li>
-      </ul>
-    </div>
+  <p class="hero__deck">
+    Sept moments t'attendent aujourd'hui. Ils sont là, sous scellés, à ouvrir dans l'ordre ou pas. Chacun se dévoile d'un simple toucher.
+  </p>
 
-    <div class="cover__right">
-      <div class="cover__bignumber" aria-hidden="true">
-        <span>40</span>
-      </div>
-      <p class="cover__caption">
-        L'âge où l'on cesse de demander la permission.
-      </p>
-    </div>
-  </div>
+  <p class="hero__place">
+    <span class="hero__pin">◦</span>
+    Saint-Germain-des-Prés, Paris VI
+    <span class="hero__pin">◦</span>
+  </p>
 
-  <div class="cover__footer">
-    <span>·&nbsp;une publication confidentielle&nbsp;·</span>
-    <span class="scroll-hint">défilez ↓</span>
-  </div>
+  <a href="#course-1" class="hero__cta">
+    <span>Commencer</span>
+    <span class="hero__arrow" aria-hidden="true">↓</span>
+  </a>
 </header>
 
 
-<!-- ============ ÉDITO ============ -->
-<section class="page edito" id="edito" data-reveal>
-  <div class="page__head">
-    <span class="page__num">P. 02</span>
-    <span class="page__rubrique">L'édito</span>
-  </div>
+<!-- ============ MENU ============ -->
+<main class="menu">
 
-  <h2 class="page__title">
-    Lettre à <em>celle qui a quarante&nbsp;ans aujourd'hui.</em>
-  </h2>
-
-  <div class="edito__body">
-    <p class="dropcap">
-      Ma Laure, il y a des amitiés qu'on n'explique pas. La nôtre est de celles-là. Quand on m'a demandé combien de temps on se connaissait, j'ai compté sur mes doigts et j'ai ri&nbsp;: pas assez pour le mesurer, beaucoup trop pour t'oublier un jour.
-    </p>
-    <p>
-      Quarante ans, c'est l'âge où l'on commence à savoir qui l'on est, et accessoirement à s'en moquer un peu, ce qui est la meilleure nouvelle de la décennie. C'est aussi l'âge où l'on a assez vécu pour se construire une mythologie, et c'est précisément ce que ce magazine essaie de faire&nbsp;: une mythologie de toi.
-    </p>
-    <p>
-      Tu n'aimes pas qu'on parle de toi. Tant pis. Cette fois c'est imprimé.
-    </p>
-    <p class="edito__signature">
-      Elisabeth, <span class="muted">rédactrice en chef d'un magazine à un seul abonnement.</span>
-    </p>
-  </div>
-</section>
-
-
-<!-- ============ 1986 ============ -->
-<section class="page year" id="year" data-reveal>
-  <div class="page__head">
-    <span class="page__num">P. 05</span>
-    <span class="page__rubrique">Archives</span>
-  </div>
-
-  <h2 class="page__title">
-    <span class="year__big">1986</span>
-    <span class="year__sub">l'année où tu es entrée dans la pièce.</span>
-  </h2>
-
-  <div class="year__grid">
-    <article class="card">
-      <span class="card__tag">Musique</span>
-      <h3>Sur les ondes</h3>
-      <p>Whitney Houston règne avec <em>The Greatest Love of All</em>. Étienne Daho murmure <em>Pop Satori</em>. Quelque part, quelqu'un enregistre une cassette pour quelqu'un d'autre, c'est la grande économie affective de l'époque.</p>
-    </article>
-
-    <article class="card">
-      <span class="card__tag">Cinéma</span>
-      <h3>Au cinéma</h3>
-      <p><em>37°2 le matin</em>, <em>Le Nom de la rose</em>, <em>Top Gun</em>. On pleure, on frissonne, on porte des lunettes Ray-Ban. Trois manières d'être à la mode la même année.</p>
-    </article>
-
-    <article class="card">
-      <span class="card__tag">Air du temps</span>
-      <h3>Le monde tournait</h3>
-      <p>On découvre la cométe de Halley pour la dernière fois avant 2061. Tu viens d'arriver. Tu n'es au courant de rien, ce qui est probablement la meilleure manière d'arriver dans le monde.</p>
-    </article>
-
-    <article class="card card--accent">
-      <span class="card__tag">Naissance</span>
-      <h3>Et puis toi.</h3>
-      <p>Un soir, dans une chambre d'hôpital, une voix neuve s'est mise à crier. Quarante ans plus tard, on lui consacre un magazine. C'est ce qu'on appelle un bon investissement.</p>
-    </article>
-  </div>
-
-  <p class="year__note">
-    <span class="muted">NDLR&nbsp;: Elisabeth, vérifie que 1986 est bien la bonne année et remplace si besoin. Toutes les sections sont éditables dans <code>index.html</code>.</span>
-  </p>
-</section>
-
-
-<!-- ============ 40 CHOSES ============ -->
-<section class="page forty" id="forty" data-reveal>
-  <div class="page__head">
-    <span class="page__num">P. 09</span>
-    <span class="page__rubrique">Le dossier</span>
-  </div>
-
-  <h2 class="page__title">
-    Quarante choses <em>vraies</em> sur Laure.
-  </h2>
-  <p class="page__intro">
-    Un index sentimental, dressé de mémoire. À compléter, contester, signer en bas à droite.
+  <p class="menu__intro">
+    <em>À la manière d'un menu du jour.</em><br/>
+    Sept services, du petit matin à la nuit tombée.
   </p>
 
-  <ol class="forty__list">
-    <li><span class="forty__n">01</span><span class="forty__t">Elle dit «&nbsp;j'arrive&nbsp;» et il faut comprendre «&nbsp;dans vingt minutes&nbsp;».</span></li>
-    <li><span class="forty__n">02</span><span class="forty__t">Sait écouter mieux que la moyenne des thérapeutes.</span></li>
-    <li><span class="forty__n">03</span><span class="forty__t">A déjà sauvé une soirée d'une simple phrase.</span></li>
-    <li><span class="forty__n">04</span><span class="forty__t">Rit avant la chute, ce qui est un compliment au narrateur.</span></li>
-    <li><span class="forty__n">05</span><span class="forty__t">N'a jamais perdu un parapluie. Statistiquement impossible.</span></li>
-    <li><span class="forty__n">06</span><span class="forty__t">Sait reconnaître un mauvais vin sans humilier personne.</span></li>
-    <li><span class="forty__n">07</span><span class="forty__t">Pose les bonnes questions, ce qui est plus rare que de donner les bonnes réponses.</span></li>
-    <li><span class="forty__n">08</span><span class="forty__t">Conduit comme si elle savait où elle va, même quand non.</span></li>
-    <li><span class="forty__n">09</span><span class="forty__t">N'a jamais envoyé un message vocal de moins de deux minutes.</span></li>
-    <li><span class="forty__n">10</span><span class="forty__t">A un goût parfait pour les cadeaux qu'on n'aurait pas osé se faire.</span></li>
-    <li><span class="forty__n">11</span><span class="forty__t">Pense aux gens à voix basse.</span></li>
-    <li><span class="forty__n">12</span><span class="forty__t">Lit la fin avant le début. Et alors&nbsp;?</span></li>
-    <li><span class="forty__n">13</span><span class="forty__t">Connaît tout le monde, mais n'en abuse jamais.</span></li>
-    <li><span class="forty__n">14</span><span class="forty__t">Refuse les compliments en silence, c'est sa forme à elle de les accepter.</span></li>
-    <li><span class="forty__n">15</span><span class="forty__t">Marche vite. Sans raison.</span></li>
-    <li><span class="forty__n">16</span><span class="forty__t">Tombe rarement amoureuse, mais en grand.</span></li>
-    <li><span class="forty__n">17</span><span class="forty__t">A pleuré au moins une fois en regardant un coucher de soleil et l'a totalement assumé.</span></li>
-    <li><span class="forty__n">18</span><span class="forty__t">Cuisine de tête. C'est une forme d'aristocratie.</span></li>
-    <li><span class="forty__n">19</span><span class="forty__t">Ne ment pas, même par politesse.</span></li>
-    <li><span class="forty__n">20</span><span class="forty__t">Mi-temps. Vous êtes à la moitié.</span></li>
-    <li><span class="forty__n">21</span><span class="forty__t">Connaît la valeur exacte du silence dans une conversation.</span></li>
-    <li><span class="forty__n">22</span><span class="forty__t">N'oublie aucun anniversaire. Ce qui est, statistiquement, du chamanisme.</span></li>
-    <li><span class="forty__n">23</span><span class="forty__t">Donne sans calculer. Reprend sans rancune.</span></li>
-    <li><span class="forty__n">24</span><span class="forty__t">A toujours un livre dans son sac, dont elle ne lira pas une ligne.</span></li>
-    <li><span class="forty__n">25</span><span class="forty__t">Sait dire non sans qu'on le prenne mal.</span></li>
-    <li><span class="forty__n">26</span><span class="forty__t">A un fou rire signature, reconnaissable à dix mètres.</span></li>
-    <li><span class="forty__n">27</span><span class="forty__t">Aime les imprévus, mais en a horreur quand c'est elle qu'on bouscule.</span></li>
-    <li><span class="forty__n">28</span><span class="forty__t">N'a jamais perdu un secret confié.</span></li>
-    <li><span class="forty__n">29</span><span class="forty__t">Préfère les vieux restaurants aux nouveaux. Et a raison.</span></li>
-    <li><span class="forty__n">30</span><span class="forty__t">Sait danser même quand personne ne danse, et c'est elle qui a raison aussi.</span></li>
-    <li><span class="forty__n">31</span><span class="forty__t">Choisit ses combats avec une élégance rare.</span></li>
-    <li><span class="forty__n">32</span><span class="forty__t">A vieilli de zéro an depuis qu'on la connaît.</span></li>
-    <li><span class="forty__n">33</span><span class="forty__t">Sait être seule sans s'ennuyer. Performance.</span></li>
-    <li><span class="forty__n">34</span><span class="forty__t">Boit son café noir. C'est tout.</span></li>
-    <li><span class="forty__n">35</span><span class="forty__t">A déjà fait pleurer un inconnu en lui disant simplement merci.</span></li>
-    <li><span class="forty__n">36</span><span class="forty__t">Se souvient des prénoms des chiens des autres.</span></li>
-    <li><span class="forty__n">37</span><span class="forty__t">Ne se prend pas au sérieux. C'est précisément pour ça qu'on la prend au sérieux.</span></li>
-    <li><span class="forty__n">38</span><span class="forty__t">A rendu meilleur au moins une personne, et probablement bien plus.</span></li>
-    <li><span class="forty__n">39</span><span class="forty__t">Ne sait toujours pas combien elle vaut. Spoiler.</span></li>
-    <li class="forty__final"><span class="forty__n">40</span><span class="forty__t">Quarante ans aujourd'hui, et quelque chose nous dit que c'est juste l'introduction.</span></li>
-  </ol>
-</section>
 
+  <!-- ==== I · PETIT-DÉJEUNER ==== -->
+  <article class="course" id="course-1" data-time="10:30">
+    <div class="course__inner" data-flip>
+      <button class="course__face course__face--sealed" data-open aria-label="Ouvrir le premier moment">
+        <span class="course__roman">I</span>
+        <span class="course__time">10h30</span>
+        <span class="course__hint">tapote pour ouvrir</span>
+        <span class="course__wax" aria-hidden="true">
+          <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width=".8"/><text x="30" y="38" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="700" font-size="24" fill="currentColor">L</text></svg>
+        </span>
+      </button>
 
-<!-- ============ MANIFESTE ============ -->
-<section class="page manifesto" id="manifesto" data-reveal>
-  <div class="page__head">
-    <span class="page__num">P. 17</span>
-    <span class="page__rubrique">Le manifeste</span>
-  </div>
-
-  <h2 class="page__title">
-    Manifeste pour <em>les quarante prochaines.</em>
-  </h2>
-
-  <div class="manifesto__lines">
-    <p>Continuer à dire non sans culpabiliser.</p>
-    <p>Continuer à dire oui sans calculer.</p>
-    <p>Choisir les gens lentement, les aimer vite.</p>
-    <p>Ne plus s'excuser de prendre la place qu'on prend.</p>
-    <p>Faire la sieste comme un acte politique.</p>
-    <p>Acheter le manteau.</p>
-    <p>Refaire les voyages qui ont marché. Tester ceux qui font peur.</p>
-    <p>Garder cette voix qui sait dire les choses justes au mauvais moment.</p>
-    <p>Vieillir sans s'aplatir. Rester debout dans son rire.</p>
-    <p class="manifesto__final">Et fêter chaque décennie comme si on en inventait une nouvelle.</p>
-  </div>
-</section>
-
-
-<!-- ============ LETTRES ============ -->
-<section class="page letters" id="letters" data-reveal>
-  <div class="page__head">
-    <span class="page__num">P. 23</span>
-    <span class="page__rubrique">Lettres reçues</span>
-  </div>
-
-  <h2 class="page__title">
-    Le courrier <em>des lecteurs.</em>
-  </h2>
-  <p class="page__intro">
-    Quelques mots récoltés auprès de ceux qui t'aiment. <span class="muted">(Elisabeth, remplace les noms et les textes par les vrais&nbsp;: il suffit d'éditer le fichier <code>index.html</code>, bloc <code>.letters__grid</code>.)</span>
-  </p>
-
-  <div class="letters__grid">
-    <blockquote class="letter">
-      <p>«&nbsp;Quarante ans et toujours la seule à savoir me faire taire d'un regard. Je signe pour quarante de plus.&nbsp;»</p>
-      <footer>Prénom, depuis toujours.</footer>
-    </blockquote>
-
-    <blockquote class="letter">
-      <p>«&nbsp;Tu es la personne que j'appelle quand je n'ose pas appeler. Merci d'exister à portée de téléphone.&nbsp;»</p>
-      <footer>Prénom, ami(e) de longue date.</footer>
-    </blockquote>
-
-    <blockquote class="letter">
-      <p>«&nbsp;Le monde a beaucoup de chance que tu y sois née un certain jour de 1986. Moi en particulier.&nbsp;»</p>
-      <footer>Prénom.</footer>
-    </blockquote>
-
-    <blockquote class="letter">
-      <p>«&nbsp;Bon anniversaire à la femme la plus difficile à résumer en un mot, et la plus simple à aimer en silence.&nbsp;»</p>
-      <footer>Prénom.</footer>
-    </blockquote>
-
-    <blockquote class="letter">
-      <p>«&nbsp;Quarante&nbsp;? Impossible. On vient de se rencontrer hier.&nbsp;»</p>
-      <footer>Prénom.</footer>
-    </blockquote>
-
-    <blockquote class="letter">
-      <p>«&nbsp;Pour les quarante prochaines, je te souhaite la même chose qu'à moi&nbsp;: te rencontrer plus souvent.&nbsp;»</p>
-      <footer>Prénom.</footer>
-    </blockquote>
-  </div>
-</section>
-
-
-<!-- ============ DOS DE COUVERTURE ============ -->
-<footer class="backcover" id="back">
-  <div class="backcover__inner">
-    <p class="backcover__kicker">Colophon</p>
-    <h2 class="backcover__title">
-      Tirage&nbsp;: un&nbsp;exemplaire.<br/>
-      Lectrice&nbsp;: <em>une seule.</em>
-    </h2>
-
-    <dl class="backcover__meta">
-      <div><dt>Rédactrice en chef</dt><dd>Elisabeth</dd></div>
-      <div><dt>Sujet</dt><dd>Laure, intégralement</dd></div>
-      <div><dt>Numéro</dt><dd>40 · édition anniversaire</dd></div>
-      <div><dt>Date de parution</dt><dd>Mai&nbsp;2026</dd></div>
-      <div><dt>Tirage</dt><dd>Confidentiel, 1&nbsp;exemplaire</dd></div>
-      <div><dt>Prix</dt><dd>Hors commerce</dd></div>
-    </dl>
-
-    <p class="backcover__signoff">
-      Bon anniversaire, Laure.<br/>
-      <span class="muted">Et merci d'avoir accepté, sans le savoir, de faire la couverture.</span>
-    </p>
-  </div>
-
-  <div class="backcover__barcode" aria-hidden="true">
-    <div class="bars">
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <div class="course__face course__face--open">
+        <div class="course__head">
+          <span class="course__roman--small">I</span>
+          <span class="course__time--small">10h30</span>
+        </div>
+        <h2 class="course__title">Petit-déjeuner</h2>
+        <p class="course__place">Lutetia</p>
+        <address class="course__address">
+          45 boulevard Raspail, 75006 Paris<br/>
+          Métro Sèvres-Babylone (10, 12), à 2 minutes
+        </address>
+        <p class="course__note">
+          <em>On commence en douceur.</em> Une salle qui n'a pas changé depuis Malraux, du café servi comme il se doit, et deux heures devant nous pour parler doucement.
+        </p>
+        <p class="course__end">Fin vers 12h30.</p>
+      </div>
     </div>
-    <span class="bars__label">L · 40 · 2026</span>
-  </div>
+  </article>
+
+
+  <!-- ==== TRANSITION ==== -->
+  <p class="between">
+    <span class="between__line"></span>
+    <span class="between__label">Puis 9 minutes à pied, rue des Saints-Pères. Rien ne presse.</span>
+    <span class="between__line"></span>
+  </p>
+
+
+  <!-- ==== II · SPA PRIVÉ ==== -->
+  <article class="course" id="course-2" data-time="13:30">
+    <div class="course__inner" data-flip>
+      <button class="course__face course__face--sealed" data-open aria-label="Ouvrir le deuxième moment">
+        <span class="course__roman">II</span>
+        <span class="course__time">13h30</span>
+        <span class="course__hint">tapote pour ouvrir</span>
+        <span class="course__wax" aria-hidden="true">
+          <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width=".8"/><text x="30" y="38" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="700" font-size="24" fill="currentColor">L</text></svg>
+        </span>
+      </button>
+
+      <div class="course__face course__face--open">
+        <div class="course__head">
+          <span class="course__roman--small">II</span>
+          <span class="course__time--small">13h30</span>
+        </div>
+        <h2 class="course__title">Spa privé <span class="course__amp">&amp;</span> Champagne</h2>
+        <p class="course__place">Hôtel Da Vinci <span class="course__stars">★★★★</span></p>
+        <address class="course__address">
+          25 rue des Saints-Pères, 75006 Paris
+        </address>
+        <ul class="course__list">
+          <li>Privatisation complète</li>
+          <li>Bassin, jets hydromassants, nage à contre-courant</li>
+          <li>Bouteille de champagne 37,5 cl</li>
+        </ul>
+        <p class="course__note">
+          <em>Ambiance grotte bleue, mosaïque, bougies, l'Homme de Vitruve en fresque.</em> Arrivée à 13h30 pour le vestiaire. Séance de 13h45 à 14h30. Rhabillage tranquille, le monde peut attendre.
+        </p>
+        <p class="course__end">Fin vers 15h00.</p>
+      </div>
+    </div>
+  </article>
+
+
+  <!-- ==== TRANSITION ==== -->
+  <p class="between">
+    <span class="between__line"></span>
+    <span class="between__label">On remonte vers la place Saint-Germain.</span>
+    <span class="between__line"></span>
+  </p>
+
+
+  <!-- ==== III · DÉJEUNER-GOÛTER ==== -->
+  <article class="course" id="course-3" data-time="15:00">
+    <div class="course__inner" data-flip>
+      <button class="course__face course__face--sealed" data-open aria-label="Ouvrir le troisième moment">
+        <span class="course__roman">III</span>
+        <span class="course__time">15h00</span>
+        <span class="course__hint">tapote pour ouvrir</span>
+        <span class="course__wax" aria-hidden="true">
+          <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width=".8"/><text x="30" y="38" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="700" font-size="24" fill="currentColor">L</text></svg>
+        </span>
+      </button>
+
+      <div class="course__face course__face--open">
+        <div class="course__head">
+          <span class="course__roman--small">III</span>
+          <span class="course__time--small">15h00</span>
+        </div>
+        <h2 class="course__title">Déjeuner-goûter</h2>
+        <p class="course__place">À toi de choisir&nbsp;:</p>
+
+        <div class="course__pair">
+          <div class="course__opt">
+            <span class="course__opt-tag">option A</span>
+            <p class="course__opt-name">Café de Flore</p>
+            <p class="course__opt-addr">172 boulevard Saint-Germain</p>
+          </div>
+          <div class="course__opt">
+            <span class="course__opt-tag">option B</span>
+            <p class="course__opt-name">Les Deux Magots</p>
+            <p class="course__opt-addr">6 place Saint-Germain-des-Prés</p>
+          </div>
+        </div>
+
+        <p class="course__note">
+          Deux terrasses mythiques à cinquante mètres l'une de l'autre. La rivalité dure depuis 1885, elle nous survivra. Choisis celle qui a le meilleur soleil.
+        </p>
+        <p class="course__end">Fin à 15h45.</p>
+      </div>
+    </div>
+  </article>
+
+
+  <!-- ==== TRANSITION ==== -->
+  <p class="between">
+    <span class="between__line"></span>
+    <span class="between__label">Traverse la place, l'atelier est en face.</span>
+    <span class="between__line"></span>
+  </p>
+
+
+  <!-- ==== IV · ATELIER COCKTAIL ==== -->
+  <article class="course" id="course-4" data-time="16:00">
+    <div class="course__inner" data-flip>
+      <button class="course__face course__face--sealed" data-open aria-label="Ouvrir le quatrième moment">
+        <span class="course__roman">IV</span>
+        <span class="course__time">16h00</span>
+        <span class="course__hint">tapote pour ouvrir</span>
+        <span class="course__wax" aria-hidden="true">
+          <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width=".8"/><text x="30" y="38" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="700" font-size="24" fill="currentColor">L</text></svg>
+        </span>
+      </button>
+
+      <div class="course__face course__face--open">
+        <div class="course__head">
+          <span class="course__roman--small">IV</span>
+          <span class="course__time--small">16h00</span>
+        </div>
+        <h2 class="course__title">Atelier mixologie <span class="course__amp">&amp;</span> cocktail</h2>
+        <p class="course__place">Madison Hôtel</p>
+        <address class="course__address">
+          143 boulevard Saint-Germain, 75006 Paris<br/>
+          01 40 51 60 00 · Métro Saint-Germain-des-Prés (ligne 4), en face
+        </address>
+        <p class="course__note">
+          <em>Tu es en avance, tant mieux.</em> Compte une heure trente à deux heures selon la formule. Tu repars avec des recettes que tu ressortiras à ton prochain apéro, et une fierté légitime.
+        </p>
+        <p class="course__end">Fin vers 18h00.</p>
+      </div>
+    </div>
+  </article>
+
+
+  <!-- ==== TRANSITION ==== -->
+  <p class="between">
+    <span class="between__line"></span>
+    <span class="between__label">Ne remplis pas ce créneau. Souffle.</span>
+    <span class="between__line"></span>
+  </p>
+
+
+  <!-- ==== V · FLOTTEMENT ==== -->
+  <article class="course" id="course-5" data-time="18:00">
+    <div class="course__inner" data-flip>
+      <button class="course__face course__face--sealed" data-open aria-label="Ouvrir le cinquième moment">
+        <span class="course__roman">V</span>
+        <span class="course__time">18h00</span>
+        <span class="course__hint">tapote pour ouvrir</span>
+        <span class="course__wax" aria-hidden="true">
+          <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width=".8"/><text x="30" y="38" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="700" font-size="24" fill="currentColor">L</text></svg>
+        </span>
+      </button>
+
+      <div class="course__face course__face--open">
+        <div class="course__head">
+          <span class="course__roman--small">V</span>
+          <span class="course__time--small">18h00</span>
+        </div>
+        <h2 class="course__title">Deux heures de flottement</h2>
+        <p class="course__place">Au choix, à portée immédiate</p>
+
+        <ul class="course__list">
+          <li><strong>Le Jardin du Luxembourg</strong>, 10 minutes. Chaises vertes, ombre, fermeture au coucher du soleil.</li>
+          <li><strong>Les rues Bonaparte, de Seine, Jacob</strong>, pour les galeries.</li>
+          <li><strong>Un café en terrasse</strong>, et rien d'autre.</li>
+        </ul>
+
+        <p class="course__note">
+          Champagne à 14h, vin au goûter, cocktails à 16h. Bois de l'eau. La soirée sera meilleure si tu marques une pause ici.
+        </p>
+        <p class="course__end">Départ métro à 19h45.</p>
+      </div>
+    </div>
+  </article>
+
+
+  <!-- ==== TRANSITION ==== -->
+  <p class="between">
+    <span class="between__line"></span>
+    <span class="between__label">Direction rive droite.</span>
+    <span class="between__line"></span>
+  </p>
+
+
+  <!-- ==== VI · MÉTRO ==== -->
+  <article class="course" id="course-6" data-time="19:45">
+    <div class="course__inner" data-flip>
+      <button class="course__face course__face--sealed" data-open aria-label="Ouvrir le sixième moment">
+        <span class="course__roman">VI</span>
+        <span class="course__time">19h45</span>
+        <span class="course__hint">tapote pour ouvrir</span>
+        <span class="course__wax" aria-hidden="true">
+          <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width=".8"/><text x="30" y="38" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="700" font-size="24" fill="currentColor">L</text></svg>
+        </span>
+      </button>
+
+      <div class="course__face course__face--open">
+        <div class="course__head">
+          <span class="course__roman--small">VI</span>
+          <span class="course__time--small">19h45</span>
+        </div>
+        <h2 class="course__title">Le métro (ou le pont)</h2>
+
+        <div class="course__pair course__pair--metro">
+          <div class="course__opt">
+            <span class="course__opt-tag">ligne 4</span>
+            <p class="course__opt-name">Saint-Germain-des-Prés → Les Halles</p>
+            <p class="course__opt-addr">8 minutes, direct, sans changement</p>
+          </div>
+          <div class="course__opt">
+            <span class="course__opt-tag">à pied</span>
+            <p class="course__opt-name">Par la rue de Seine et le Pont-Neuf</p>
+            <p class="course__opt-addr">17 minutes si le soir est doux</p>
+          </div>
+        </div>
+
+        <p class="course__note">
+          Rive droite. Un dernier trajet avant la scène. Prends celui qui te ressemble le plus ce soir-là.
+        </p>
+      </div>
+    </div>
+  </article>
+
+
+  <!-- ==== TRANSITION FINALE ==== -->
+  <p class="between between--final">
+    <span class="between__line"></span>
+    <span class="between__label"><em>Et pour finir.</em></span>
+    <span class="between__line"></span>
+  </p>
+
+
+  <!-- ==== VII · FRIDGE COMEDY CLUB ==== -->
+  <article class="course course--finale" id="course-7" data-time="20:00">
+    <div class="course__inner" data-flip>
+      <button class="course__face course__face--sealed course__face--finale" data-open aria-label="Ouvrir le dernier moment">
+        <span class="course__roman">VII</span>
+        <span class="course__time">20h00</span>
+        <span class="course__hint">le final</span>
+        <span class="course__wax" aria-hidden="true">
+          <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width=".8"/><text x="30" y="38" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="700" font-size="24" fill="currentColor">L</text></svg>
+        </span>
+      </button>
+
+      <div class="course__face course__face--open course__face--finale-open">
+        <div class="course__head">
+          <span class="course__roman--small">VII</span>
+          <span class="course__time--small">20h00</span>
+        </div>
+        <h2 class="course__title course__title--finale">
+          <em>Fridge Comedy Club</em>
+        </h2>
+        <address class="course__address course__address--finale">
+          164 rue Saint-Denis<br/>
+          75002 Paris
+        </address>
+        <p class="course__note">
+          Rideau. Fauteuils rouges, verre à la main, rires en salle. La journée s'est bâtie pour arriver ici, détendue, gaie, prête à écouter des gens plus drôles que la moyenne.
+        </p>
+        <p class="course__final-line">
+          Bon anniversaire, Laure.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <p class="foot__sign">
+    <em>Programme composé par Elisabeth.</em><br/>
+    <span class="foot__muted">Un exemplaire, une lectrice.</span>
+  </p>
+  <p class="foot__mono">
+    L · 40 · 15.08.2026 · 75006
+  </p>
 </footer>
 
 <script src="script.js"></script>
