@@ -1,127 +1,139 @@
-// Pour Laure, 15 août 2026.
-// Mécanique de découverte : chaque enveloppe s'ouvre au clic
-// et ne se referme plus. Progression trackée en haut.
+// Maison Laure, Collection N° 40.
+// Le coeur ouvre la porte. Les passages restent scelles
+// jusqu'au 15 aout 2026, 9h00, heure du telephone de Laure.
 
 (() => {
-  const courses = document.querySelectorAll('.course');
-  const counter = document.getElementById('progress-count');
-  const total = courses.length;
-  let opened = 0;
+  const REVEAL_AT = new Date(2026, 7, 15, 9, 0, 0);
+  const PREVIEW_KEY = 'laure40.preview';
 
-  function updateCounter() {
-    if (counter) counter.textContent = String(opened);
+  const gate = document.getElementById('gate');
+  const heart = document.getElementById('gate-heart');
+  const passages = Array.from(document.querySelectorAll('.passage'));
+  const dots = Array.from(document.querySelectorAll('#dots i'));
+  const finale = document.getElementById('finale');
+  const countdown = document.getElementById('countdown');
+  const countdownText = document.getElementById('countdown-text');
+  const maisonWord = document.getElementById('maison-word');
+
+  let revealed = false;
+
+  /* ---- La porte ---- */
+  heart.addEventListener('click', () => {
+    gate.classList.add('is-open');
+    setTimeout(() => {
+      gate.remove();
+      document.body.classList.remove('gate-locked');
+    }, 820);
+  });
+
+  /* ---- Revelation ---- */
+  function isForced() {
+    try {
+      return new URLSearchParams(location.search).has('reveal')
+        || sessionStorage.getItem(PREVIEW_KEY) === '1';
+    } catch { return false; }
   }
 
-  function openCourse(course, { scroll = false } = {}) {
-    if (course.classList.contains('is-open')) return;
-    course.classList.add('is-open');
-    opened += 1;
-    updateCounter();
+  function shouldReveal() {
+    return Date.now() >= REVEAL_AT.getTime() || isForced();
+  }
 
-    if (opened === total) {
-      setTimeout(finaleCelebration, 900);
-    }
+  function openPassage(p, animated) {
+    const sealed = p.querySelector('.passage__face--sealed');
+    const open = p.querySelector('.passage__face--open');
+    sealed.hidden = true;
+    open.hidden = false;
+    if (!animated) open.style.animation = 'none';
+    p.classList.add('is-open');
+    const idx = Number(p.dataset.index) - 1;
+    if (dots[idx]) dots[idx].classList.add('is-on');
+  }
 
-    if (scroll) {
-      const rect = course.getBoundingClientRect();
-      if (rect.top < 40 || rect.bottom > window.innerHeight - 40) {
-        course.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+  function reveal(animated) {
+    if (revealed) return;
+    revealed = true;
+    document.body.classList.add('is-revealed');
+
+    passages.forEach((p, i) => {
+      if (animated) setTimeout(() => openPassage(p, true), i * 220);
+      else openPassage(p, false);
+    });
+
+    const finaleDelay = animated ? passages.length * 220 + 500 : 0;
+    setTimeout(() => {
+      finale.hidden = false;
+      if (animated) finale.classList.add('is-in');
+    }, finaleDelay);
+
+    countdownText.textContent = 'Bonne journée, Laure';
+    if (maisonWord) {
+      maisonWord.innerHTML = 'Tout est là.<br/>Laisse-toi porter.';
     }
   }
 
-  courses.forEach((course) => {
-    const trigger = course.querySelector('[data-open]');
-    if (!trigger) return;
-    trigger.addEventListener('click', () => openCourse(course));
-    trigger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openCourse(course);
-      }
+  /* ---- Compte a rebours ---- */
+  function daysUntilReveal() {
+    const now = new Date();
+    const startToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const startReveal = new Date(2026, 7, 15);
+    return Math.round((startReveal - startToday) / 86400000);
+  }
+
+  function tick() {
+    if (shouldReveal()) {
+      reveal(true);
+      return;
+    }
+    const d = daysUntilReveal();
+    if (d > 1) {
+      countdownText.textContent = 'Révélation le 15 août · 9h00 · J-' + d;
+    } else if (d === 1) {
+      countdownText.textContent = 'Révélation demain · 9h00';
+    } else {
+      countdownText.textContent = "C'est aujourd'hui · rendez-vous à 9h00";
+    }
+  }
+
+  if (shouldReveal()) {
+    reveal(false);
+  } else {
+    tick();
+    setInterval(tick, 30000);
+  }
+
+  /* ---- Registre : coche du sac ---- */
+  const SAC_KEY = 'laure40.sac';
+  document.querySelectorAll('.registry__row').forEach((row) => {
+    const box = row.querySelector('.registry__box');
+    const id = row.dataset.check;
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(SAC_KEY) || '{}'); } catch {}
+    if (saved[id]) {
+      row.classList.add('is-checked');
+      box.setAttribute('aria-pressed', 'true');
+    }
+    box.addEventListener('click', () => {
+      const on = row.classList.toggle('is-checked');
+      box.setAttribute('aria-pressed', String(on));
+      try {
+        const s = JSON.parse(localStorage.getItem(SAC_KEY) || '{}');
+        s[id] = on;
+        localStorage.setItem(SAC_KEY, JSON.stringify(s));
+      } catch {}
     });
   });
 
-  // Auto-ouverture selon l'heure réelle du 15 août 2026 en Europe/Paris.
-  // Si la date est passée ou en cours, on ouvre les moments déjà arrivés.
-  (function autoOpenByTime() {
-    const now = new Date();
-    // Cible : 15 août 2026, heure locale du navigateur.
-    // Simple check : year >= 2026 && (month > août || (août && day >= 15))
-    const y = now.getFullYear();
-    const m = now.getMonth(); // 0-indexed, août = 7
-    const d = now.getDate();
-
-    const isDayOrAfter =
-      y > 2026 ||
-      (y === 2026 && m > 7) ||
-      (y === 2026 && m === 7 && d >= 15);
-
-    if (!isDayOrAfter) return;
-
-    // Sur le jour même, on ouvre selon l'heure.
-    // Après le jour, tout est ouvert.
-    const isTheDay = (y === 2026 && m === 7 && d === 15);
-    const nowMinutes = now.getHours() * 60 + now.getMinutes();
-
-    courses.forEach((course) => {
-      const t = course.getAttribute('data-time');
-      if (!t) return;
-      if (!isTheDay) { openCourse(course); return; }
-      const [hh, mm] = t.split(':').map(Number);
-      const startMin = hh * 60 + mm;
-      if (nowMinutes >= startMin) openCourse(course);
-    });
-  })();
-
-  // Petit code d'urgence : tape "laure" pour tout dévoiler.
-  (function unlockAllShortcut() {
+  /* ---- Apercu pour Elisabeth : taper "laure" ---- */
+  (() => {
     let buf = '';
     document.addEventListener('keydown', (e) => {
       if (e.key.length !== 1) return;
       buf = (buf + e.key.toLowerCase()).slice(-5);
       if (buf === 'laure') {
         buf = '';
-        courses.forEach(c => openCourse(c));
+        try { sessionStorage.setItem(PREVIEW_KEY, '1'); } catch {}
+        reveal(true);
       }
     });
   })();
-
-  // Célébration : quelques particules laiton/sienne à l'ouverture du dernier.
-  function finaleCelebration() {
-    const layer = document.createElement('div');
-    layer.className = 'finale-veil';
-    document.body.appendChild(layer);
-
-    const N = 60;
-    const colors = ['#b8945f', '#8b3a2f', '#1e1b17', '#f2ead8'];
-    for (let i = 0; i < N; i++) {
-      const p = document.createElement('span');
-      const size = 4 + Math.random() * 8;
-      const startX = Math.random() * 100;
-      const dur = 3 + Math.random() * 3;
-      Object.assign(p.style, {
-        position: 'absolute',
-        top: '-24px',
-        left: startX + '%',
-        width: size + 'px',
-        height: (size * .35) + 'px',
-        background: colors[i % colors.length],
-        transform: `rotate(${Math.random() * 360}deg)`,
-        opacity: '0',
-        transition: `transform ${dur}s linear, top ${dur}s cubic-bezier(.4,.1,.6,1), opacity .5s ease`
-      });
-      layer.appendChild(p);
-      requestAnimationFrame(() => {
-        p.style.opacity = '1';
-        p.style.top = (105 + Math.random() * 15) + 'vh';
-        p.style.transform = `rotate(${Math.random() * 900}deg) translateX(${(Math.random() - .5) * 60}px)`;
-      });
-    }
-    setTimeout(() => {
-      layer.style.transition = 'opacity .8s ease';
-      layer.style.opacity = '0';
-      setTimeout(() => layer.remove(), 900);
-    }, 5000);
-  }
 })();

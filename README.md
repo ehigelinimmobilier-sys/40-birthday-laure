@@ -1,45 +1,44 @@
-# LAURE, Numéro 40
+# Maison Laure · Collection N° 40
 
-Un magazine éditorial entièrement consacré à Laure, pour ses 40 ans.
-Tirage : un seul exemplaire. Lectrice : une seule.
+Le site cadeau des 40 ans de Laure. Samedi 15 août 2026, Saint-Germain-des-Prés.
 
-Site statique, sans dépendances. S'inspire des design systems éditoriaux
-(WIRED, Sanity, Le Monde Magazine). Paper-white, encre noire, accent rouge,
-typographie Fraunces + Inter.
+DA : carton d'invitation de défilé haute couture. Noir d'encre, blanc craie,
+champagne froid, platine. Bodoni Moda, Jost, IBM Plex Mono.
 
-## Sections
+## Comment ça marche
 
-- **Couverture** : masthead, titre, sommaire, grand "40"
-- **Édito** : la lettre d'Elisabeth
-- **Archives 1986** : l'année où tout a commencé
-- **40 choses sur Laure** : l'index sentimental
-- **Manifeste** : pour les 40 prochaines
-- **Lettres reçues** : le courrier des amis
-- **Dos de couverture** : colophon
+1. **Le cœur.** Le site s'ouvre sur un cœur champagne qui bat. Un tap l'ouvre.
+2. **Mode teaser** (dès l'envoi) : le carton d'invitation, la feuille de service
+   (le sac : maillot de bain · tenue du jour : Classic Chic), puis les six
+   passages scellés. Laure voit les heures et les titres mystère, rien d'autre :
+   - 10h30 Petit déjeuner
+   - 13h30 Moment mouillé
+   - 15h00 Déj parisien
+   - 16h00 Dévoile ton art gustatif
+   - 18h00 Apéroooo
+   - 20h00 Pestacle
+   Un compte à rebours (J-x) tourne au-dessus des passages.
+3. **Le 15 août à 9h00** (heure du téléphone) : tout se dévoile automatiquement,
+   adresses, détails, notes de la maison, et la finale signée Elisabeth.
 
-## À personnaliser
+## Prévisualiser le mode révélé (pour Elisabeth)
 
-Tout est dans `index.html`. Tu peux éditer :
+Deux moyens, invisibles pour Laure :
 
-- L'année 1986 (section `#year`) si Laure est née en 1985 ou autre
-- Les 40 anecdotes (section `#forty`), remplace par des vraies
-- Les noms et textes des lettres (section `#letters`)
-- L'édito (section `#edito`) si tu veux y mettre ta vraie lettre
+- Ajouter `?reveal=1` à l'URL
+- Taper `laure` au clavier (ordinateur uniquement)
 
-## Easter egg
+## Personnaliser
 
-Tape `40` au clavier n'importe où sur le site.
+Tout est dans `index.html` :
+
+- Le mot final d'Elisabeth : section `#finale`, bloc `.maison-note--finale`
+- Les détails de chaque passage : blocs `.passage__face--open`
+- L'heure de révélation : constante `REVEAL_AT` en haut de `script.js`
 
 ## Mise en ligne
 
-Trois options simples :
+Site statique sans dépendances. Vercel ou Netlify en drag & drop,
+ou GitHub Pages (Settings → Pages → branch `main`).
 
-1. **Ouvrir le fichier** : double-clic sur `index.html`, ça marche en local.
-2. **GitHub Pages** : dans Settings du repo → Pages → branch `main`, dossier `/`.
-3. **Vercel / Netlify** : drag & drop du dossier, déploiement en 30 secondes.
-
-## Crédits
-
-Rédactrice en chef : Elisabeth.
-Sujet : Laure, intégralement.
-Mai 2026.
+Un exemplaire, une invitée.
