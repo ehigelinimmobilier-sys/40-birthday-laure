@@ -3,7 +3,7 @@
 // jusqu'au 15 aout 2026, 9h00, heure du telephone de Laure.
 
 (() => {
-  const REVEAL_AT = new Date(2026, 7, 15, 9, 0, 0);
+  const REVEAL_AT = new Date(2026, 7, 14, 20, 0, 0);
   const PREVIEW_KEY = 'laure40.preview';
 
   const gate = document.getElementById('gate');
@@ -65,7 +65,7 @@
       if (animated) finale.classList.add('is-in');
     }, finaleDelay);
 
-    countdownText.textContent = 'Bonne journée, Laure';
+    countdownText.textContent = 'Bon anniversaire, Laure';
     if (maisonWord) {
       maisonWord.innerHTML = 'Tout est là.<br/>Laisse-toi porter.';
     }
@@ -75,7 +75,7 @@
   function daysUntilReveal() {
     const now = new Date();
     const startToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const startReveal = new Date(2026, 7, 15);
+    const startReveal = new Date(2026, 7, 14);
     return Math.round((startReveal - startToday) / 86400000);
   }
 
@@ -86,11 +86,11 @@
     }
     const d = daysUntilReveal();
     if (d > 1) {
-      countdownText.textContent = 'Révélation le 15 août · 9h00 · J-' + d;
+      countdownText.textContent = 'Révélation le 14 août · 20h00 · J-' + d;
     } else if (d === 1) {
-      countdownText.textContent = 'Révélation demain · 9h00';
+      countdownText.textContent = 'Révélation demain soir · 20h00';
     } else {
-      countdownText.textContent = "C'est aujourd'hui · rendez-vous à 9h00";
+      countdownText.textContent = "C'est ce soir · rendez-vous à 20h00";
     }
   }
 
