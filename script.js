@@ -60,7 +60,9 @@
     open.hidden = false;
     if (!animated) open.style.animation = 'none';
     m.classList.add('is-open');
-    const w = walks[Number(m.dataset.index) - 1];
+    // le trajet vers ce moment n'apparait qu'a son deblocage,
+    // pour ne jamais annoncer la suite
+    const w = walks[Number(m.dataset.index) - 2];
     if (w) w.classList.add('is-shown');
   }
 
