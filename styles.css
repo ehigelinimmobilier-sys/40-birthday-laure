@@ -542,6 +542,22 @@ body.is-revealed .walk { display: flex; }
   padding: 14px 0 20px;
 }
 
+.passage__emoji {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: 34px;
+  line-height: 1;
+  padding-top: 10px;
+}
+
+.passage__tease--long {
+  font-size: clamp(21px, 5vw, 26px);
+  line-height: 1.35;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
 .passage__hint {
   position: relative;
   z-index: 1;
