@@ -26,6 +26,8 @@
 
 * { box-sizing: border-box; }
 
+[hidden] { display: none !important; }
+
 html, body {
   margin: 0;
   background: var(--lin);
@@ -715,7 +717,17 @@ button {
   padding: clamp(30px, 7vw, 46px) clamp(24px, 5vw, 40px);
 }
 
-.maison-note--finale { max-width: 46ch; margin-top: 0; }
+.maison-note--finale { max-width: 52ch; margin-top: 0; }
+.maison-note--finale .maison-note__letter {
+  text-align: left;
+  font-size: 17.5px;
+  line-height: 1.6;
+  margin: 14px 0 0;
+}
+.maison-note--finale .maison-note__sign {
+  margin-top: 22px;
+  font-size: 21px !important;
+}
 .maison-note--finale p:not(.maison-note__sign) { font-size: 20px; }
 
 
