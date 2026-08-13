@@ -1,44 +1,44 @@
-# Maison Laure · Collection N° 40
+# La Correspondance · Les 40 ans de Laure
 
 Le site cadeau des 40 ans de Laure. Samedi 15 août 2026, Saint-Germain-des-Prés.
 
-DA : carton d'invitation de défilé haute couture. Noir d'encre, blanc craie,
-champagne froid, platine. Bodoni Moda, Jost, IBM Plex Mono.
+DA : une lettre. Encre bleu nuit sur papier crème, liseré par-avion,
+enveloppe scellée d'un cœur de cire corail, filigrane 40 en parallax,
+photos en tirages scotchés. Cormorant Garamond + Karla.
 
 ## Comment ça marche
 
-1. **Le cœur.** Le site s'ouvre sur un cœur champagne qui bat. Un tap l'ouvre.
-2. **Mode teaser** (dès l'envoi) : le carton d'invitation, la feuille de service
-   (le sac : maillot de bain · tenue du jour : Classic Chic), puis les six
-   passages scellés. Laure voit les heures et les titres mystère, rien d'autre :
-   - 10h30 Petit déjeuner
-   - 13h30 Moment mouillé
-   - 15h00 Déj parisien
-   - 16h00 Dévoile ton art gustatif
-   - 18h00 Apéroooo
-   - 20h00 Pestacle
-   Un compte à rebours (J-x) tourne au-dessus des passages.
-3. **Le 15 août à 9h00** (heure du téléphone) : tout se dévoile automatiquement,
-   adresses, détails, notes de la maison, et la finale signée Elisabeth.
+1. **L'enveloppe.** Le site s'ouvre sur une enveloppe scellée. Un tap sur le
+   sceau : le rabat se soulève, la lettre sort, le site est la lettre.
+2. **La lettre** commence par « Ma Laure, » puis l'itinéraire du 15 août,
+   écrit le long d'un fil d'encre : heures, titres joueurs et phrases teaser
+   visibles, le reste raturé à l'encre.
+3. **Le 14 août à 20h00** : le sac (maillot) et la tenue (Classic Chic)
+   se dévoilent.
+4. **Le 15 août, au fil de l'eau** : chaque moment se dévoile 1h30 avant
+   son heure. 10h30, 12h30, 13h30, 14h30, 16h30, 18h30.
+5. **Le 15 août à 20h00** : le mot de la fin, signé
+   « Ton amie qui t'aime fort ».
 
-## Voir le mode révélé avant le jour J
+## Voir tout avant l'heure
 
 Deux moyens, invisibles pour Laure :
 
 - Ajouter `?copine` à l'URL (le lien à partager pour montrer le programme complet)
 - Taper `laure` au clavier (ordinateur uniquement)
 
-## Personnaliser
+## Hébergements
 
-Tout est dans `index.html` :
+Chaque `git push` met à jour les deux :
 
-- Le mot final d'Elisabeth : section `#finale`, bloc `.maison-note--finale`
-- Les détails de chaque passage : blocs `.passage__face--open`
-- L'heure de révélation : constante `REVEAL_AT` en haut de `script.js`
+- Vercel : https://laure-40.vercel.app/ (branché sur le repo `laure-40`)
+- GitHub Pages : https://ehigelinimmobilier-sys.github.io/40-birthday-laure/
 
-## Mise en ligne
+## Modifier
 
-Site statique sans dépendances. Vercel ou Netlify en drag & drop,
-ou GitHub Pages (Settings → Pages → branch `main`).
+- Horaires de déblocage : attributs `data-unlock` dans `index.html`
+  et constantes en tête de `script.js`
+- En cas de modification de `styles.css` ou `script.js`, incrémenter
+  le `?v=` dans `index.html` pour casser le cache
 
-Un exemplaire, une invitée.
+Fait avec amour par Babeth.

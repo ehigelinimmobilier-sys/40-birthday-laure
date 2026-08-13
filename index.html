@@ -4,299 +4,273 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pour Laure · 15 août 2026</title>
-<meta name="description" content="Les 40 ans de Laure. Un programme qui se dévoile le 15 août à 9h00, Saint-Germain-des-Prés." />
-<meta name="theme-color" content="#F7F2E9" />
+<meta name="description" content="Une lettre pour les 40 ans de Laure. La journée s'écrit le 14 août à 20h00." />
+<meta name="theme-color" content="#FBF7EF" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=6" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600&family=Karla:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body class="gate-locked">
 
-<!-- ============ LA PORTE : LE COEUR ============ -->
+<!-- ============ L'ENVELOPPE ============ -->
 <div class="gate" id="gate">
-  <button class="gate__heart" id="gate-heart" aria-label="Ouvrir le site">
-    <svg viewBox="0 0 80 80" width="150" height="150" aria-hidden="true">
-      <path class="gate__path" d="M40 66 C 12 48, 6 28, 16 18 C 24 10, 36 14, 40 24 C 44 14, 56 10, 64 18 C 74 28, 68 48, 40 66 Z"
-            fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-    </svg>
-  </button>
-  <p class="gate__label">Pour Laure</p>
-  <p class="gate__hint">tape le cœur</p>
+  <div class="envelope">
+    <div class="envelope__inner">
+      <div class="envelope__back"></div>
+      <div class="envelope__letter" aria-hidden="true">
+        <span class="envelope__letter-title">Ma Laure,</span>
+      </div>
+      <div class="envelope__pocket">
+        <span class="envelope__to">
+          <em>Pour Laure</em>
+          <span>à ouvrir sans attendre</span>
+        </span>
+        <span class="envelope__airmail" aria-hidden="true"></span>
+      </div>
+      <div class="envelope__flap"></div>
+      <button class="gate__seal" id="gate-heart" aria-label="Briser le sceau et ouvrir la lettre">
+        <svg viewBox="0 0 80 80" width="66" height="66" aria-hidden="true">
+          <circle cx="40" cy="40" r="38" fill="currentColor" opacity=".96"/>
+          <circle cx="40" cy="40" r="32" fill="none" stroke="#FBF7EF" stroke-width="1" opacity=".55"/>
+          <path class="gate__path" d="M40 56 C 24 45, 21 34, 27 29 C 31 25, 37 27, 40 33 C 43 27, 49 25, 53 29 C 59 34, 56 45, 40 56 Z"
+                fill="none" stroke="#FBF7EF" stroke-width="1.8" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <p class="gate__hint">tape le sceau pour ouvrir</p>
 </div>
 
 
-<!-- ============ BARRE ============ -->
-<div class="topbar" role="status" aria-live="polite">
-  <span class="topbar__brand">Pour Laure</span>
-  <span class="topbar__dots" id="dots" aria-label="Progression des moments">
-    <i></i><i></i><i></i><i></i><i></i><i></i>
-  </span>
-</div>
+<!-- ============ FILIGRANE & LAVIS (PARALLAX) ============ -->
+<div class="wm" data-parallax="-0.08" aria-hidden="true">40</div>
+<div class="wash wash--corail" data-parallax="0.05" aria-hidden="true"></div>
+<div class="wash wash--encre" data-parallax="-0.04" aria-hidden="true"></div>
+
+<div class="airmail-edge" aria-hidden="true"></div>
+
+<main class="letter">
+
+  <!-- ============ EN-TÊTE DE LETTRE ============ -->
+  <header class="letterhead reveal-on-scroll">
+    <p class="letterhead__place">Paris, été 2026</p>
+    <h1 class="letterhead__salutation">Ma Laure,</h1>
+    <p class="letterhead__body">
+      Samedi, tu as quarante ans. Alors j'ai pris la plume, et quelques réservations.
+      Ce qui suit est à toi&nbsp;: une journée entière, écrite d'avance,
+      à découvrir petit à petit.
+    </p>
+    <p class="letterhead__date">Samedi 15 août · Saint-Germain-des-Prés</p>
+    <a class="letterhead__cue" href="#veille">lis la suite <span aria-hidden="true">↓</span></a>
+  </header>
 
 
-<!-- ============ EN-TÊTE ============ -->
-<header class="hero">
-  <div class="hero__card">
-    <p class="hero__greeting">Bonjour toi</p>
+  <!-- ============ POST-SCRIPTUM DE LA VEILLE ============ -->
+  <section class="aside-card reveal-on-scroll" id="veille">
+    <p class="aside-card__label">Avant toute chose</p>
 
-    <div class="monogram monogram--warm" aria-hidden="true">
-      <svg viewBox="0 0 80 80" width="54" height="54">
-        <path d="M40 62 C 16 46, 11 30, 20 22 C 27 16, 37 19, 40 27 C 43 19, 53 16, 60 22 C 69 30, 64 46, 40 62 Z"
-              fill="none" stroke="currentColor" stroke-width="2"/>
-      </svg>
+    <div id="veille-sealed">
+      <p class="moment__tease">Ce qu'il te faut préparer pour samedi.</p>
+      <p class="redacted"><span>se dévoile le 14 août à 20h00</span></p>
     </div>
 
-    <h1 class="hero__title">Les 40 ans<br/>de Laure</h1>
-
-    <div class="hero__meta">
-      <p class="hero__meta-strong">Samedi 15 août 2026</p>
-      <p>Saint-Germain-des-Prés, Paris</p>
-    </div>
-
-  </div>
-
-  <a class="hero__scroll" href="#prologue" aria-label="Faire défiler">
-    <span class="hero__scroll-label">Défiler</span>
-    <span class="hero__arrow" aria-hidden="true">↓</span>
-  </a>
-</header>
-
-
-<main>
-
-<!-- ============ LA VEILLE ============ -->
-<section class="sheet" id="prologue">
-  <div class="sheet__card">
-    <p class="tag">La veille au soir</p>
-    <h2 class="sheet__title">On prépare, en douceur</h2>
-
-    <div class="sheet__block">
-      <p class="sheet__label">Le sac</p>
-      <ul class="registry">
-        <li class="registry__row" data-check="maillot">
-          <button class="registry__box" aria-pressed="false" aria-label="Cocher le maillot de bain">
-            <svg viewBox="0 0 14 14" aria-hidden="true"><path class="registry__tick" d="M2.5 7.5 L6 11 L11.5 3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-          </button>
-          <span class="registry__item">Maillot de bain</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="sheet__block">
-      <p class="sheet__label">La tenue</p>
-      <div class="dresscode">
-        <p class="dresscode__code">Classic&nbsp;Chic</p>
-        <p class="sheet__hint">Prépare une tenue dans laquelle tu te sens jolie, la plus belle, la plus fraîche, avec des chaussures agréables.</p>
+    <div id="veille-content" hidden>
+      <div class="aside-card__block">
+        <p class="aside-card__sub">Le sac</p>
+        <ul class="registry">
+          <li class="registry__row" data-check="maillot">
+            <button class="registry__box" aria-pressed="false" aria-label="Cocher le maillot de bain">
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path class="registry__tick" d="M2.5 7.5 L6 11 L11.5 3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+            <span class="registry__item">Maillot de bain</span>
+          </li>
+        </ul>
       </div>
-    </div>
 
-    <div class="maison-note">
-      <p id="maison-word">Les activités se dévoilent le 14 août à 20h.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ COMPTE À REBOURS ============ -->
-<p class="countdown" id="countdown">
-  <span class="countdown__line" id="countdown-text">Révélation le 14 août · 20h00</span>
-</p>
-
-
-<!-- ============ LES SIX MOMENTS ============ -->
-<section class="collection">
-
-  <!-- ==== MOMENT 01 ==== -->
-  <article class="passage" id="passage-1" data-index="1">
-    <div class="passage__face passage__face--sealed">
-      <span class="passage__seal-head"><span class="chip">12h00</span></span>
-      <span class="passage__num" aria-hidden="true">1</span>
-      <span class="passage__emoji" aria-hidden="true">😋</span>
-      <span class="passage__tease passage__tease--long">On démarre en douceur en activant ses papilles.</span>
-      <span class="bellyband"><span>Se dévoile le 14 août à 20h00</span></span>
-    </div>
-
-    <div class="passage__face passage__face--open" hidden>
-      <figure class="passage__photo">
-        <img src="img/pimpan.jpg" alt="La salle du restaurant Pimpan, velours bleu nuit et laiton" loading="lazy" />
-      </figure>
-      <div class="passage__body">
-        <p class="tag">12h00 · Moment 1</p>
-        <h2 class="passage__title">Brunch</h2>
-        <p class="passage__venue">Pimpan · Hôtel Dame des Arts</p>
-        <p class="badge"><span aria-hidden="true">✓</span> Confirmée · pour deux</p>
-        <p class="passage__desc">
-          On commence en douceur. Banquettes de velours bleu nuit, tables cerclées de laiton, grandes baies sur la terrasse arborée. Œufs, viennoiseries, bloody mary si le cœur t'en dit, et tout le temps de parler doucement.
+      <div class="aside-card__block">
+        <p class="aside-card__sub">La tenue · Classic Chic</p>
+        <p class="aside-card__text">
+          Prépare une tenue dans laquelle tu te sens jolie, la plus belle, la plus fraîche,
+          avec des chaussures agréables.
         </p>
-        <p class="passage__addr">
-          4 rue Danton, 75006 Paris<br/>
-          Métro Odéon (4, 10), à 3 minutes
-        </p>
-        <p class="passage__end">Fin vers 14h00</p>
       </div>
+
+      <p class="aside-card__note" id="maison-word">Demain, chaque moment se dévoilera à son heure. Laisse-toi guider.</p>
     </div>
-  </article>
+  </section>
 
-  <p class="walk"><span class="walk__line"></span><span class="walk__label">🚶‍♀️ Saint-Germain est à 10 min</span><span class="walk__line"></span></p>
 
-  <!-- ==== MOMENT 02 ==== -->
-  <article class="passage" id="passage-2" data-index="2">
-    <div class="passage__face passage__face--sealed">
-      <span class="passage__seal-head"><span class="chip">14h00</span></span>
-      <span class="passage__num" aria-hidden="true">2</span>
-      <span class="passage__emoji" aria-hidden="true">🚶‍♀️</span>
-      <span class="passage__tease">Balade</span>
-      <span class="passage__hint">On flâne sans but, on prend le temps de vivre.</span>
-      <span class="bellyband"><span>Se dévoile le 14 août à 20h00</span></span>
-    </div>
+  <!-- ============ COMPTE À REBOURS ============ -->
+  <p class="countdown reveal-on-scroll" id="countdown">
+    <span id="countdown-text">Révélation le 14 août · 20h00</span>
+  </p>
 
-    <div class="passage__face passage__face--open" hidden>
-      <div class="passage__body">
-        <p class="tag">14h00 · Moment 2</p>
-        <h2 class="passage__title">Balade dans Saint-Germain</h2>
-        <p class="passage__venue">Au gré des rues</p>
 
-        <ul class="passage__list">
+  <!-- ============ L'ITINÉRAIRE ============ -->
+  <section class="itinerary">
+
+    <!-- ==== 12h00 ==== -->
+    <article class="moment reveal-on-scroll" id="moment-1" data-index="1" data-unlock="10h30">
+      <div class="moment__sealed">
+        <p class="moment__time">12h00 <span class="moment__emoji" aria-hidden="true">😋</span></p>
+        <p class="moment__tease">On démarre en douceur en activant ses papilles.</p>
+        <p class="redacted"><span>se dévoile le 15 août à 10h30</span></p>
+      </div>
+
+      <div class="moment__open" hidden>
+        <p class="moment__time">12h00 <span class="moment__emoji" aria-hidden="true">😋</span></p>
+        <h2 class="moment__title">Brunch</h2>
+        <p class="moment__venue">Pimpan, à l'hôtel Dame des Arts</p>
+        <p class="badge"><span aria-hidden="true">✓</span> Confirmée, pour deux</p>
+        <figure class="frame frame--tilt-l">
+          <img src="img/pimpan.jpg" alt="La salle du restaurant Pimpan, velours bleu nuit et laiton" loading="lazy" />
+        </figure>
+        <p class="moment__desc">
+          On commence en douceur. Banquettes de velours bleu nuit, tables cerclées de laiton,
+          grandes baies sur la terrasse arborée. Œufs, viennoiseries, bloody mary si le cœur
+          t'en dit, et tout le temps de parler doucement.
+        </p>
+        <p class="moment__addr">4 rue Danton, 75006 Paris · Métro Odéon (4, 10), à 3 minutes</p>
+        <p class="moment__end">Fin vers 14h00</p>
+      </div>
+    </article>
+
+    <p class="walk reveal-on-scroll"><span>🚶‍♀️ Saint-Germain est à 10 minutes</span></p>
+
+    <!-- ==== 14h00 ==== -->
+    <article class="moment reveal-on-scroll" id="moment-2" data-index="2" data-unlock="12h30">
+      <div class="moment__sealed">
+        <p class="moment__time">14h00 <span class="moment__emoji" aria-hidden="true">🍃</span></p>
+        <p class="moment__tease">Balade. On flâne sans but, on prend le temps de vivre.</p>
+        <p class="redacted"><span>se dévoile le 15 août à 12h30</span></p>
+      </div>
+
+      <div class="moment__open" hidden>
+        <p class="moment__time">14h00 <span class="moment__emoji" aria-hidden="true">🍃</span></p>
+        <h2 class="moment__title">Balade</h2>
+        <p class="moment__venue">Saint-Germain, au gré des rues</p>
+        <ul class="moment__list">
           <li>La place de Furstemberg, la plus jolie de Paris, en toute discrétion.</li>
           <li>Les galeries des rues de Seine, Bonaparte et Jacob.</li>
           <li>L'église Saint-Germain-des-Prés, la doyenne de la ville.</li>
           <li>Un café en terrasse au Flore ou aux Deux Magots, si le cœur t'en dit.</li>
         </ul>
-
-        <p class="passage__desc">
+        <p class="moment__desc">
           Trois quarts d'heure à flâner sans but précis. C'est le quartier qui fait le travail.
         </p>
-        <p class="passage__end">À 14h45, direction le spa</p>
+        <p class="moment__end">À 14h45, direction le spa</p>
       </div>
-    </div>
-  </article>
+    </article>
 
-  <p class="walk"><span class="walk__line"></span><span class="walk__label">🚶‍♀️ 5 min à pied</span><span class="walk__line"></span></p>
+    <p class="walk reveal-on-scroll"><span>🚶‍♀️ 5 minutes à pied</span></p>
 
-  <!-- ==== MOMENT 03 ==== -->
-  <article class="passage" id="passage-3" data-index="3">
-    <div class="passage__face passage__face--sealed">
-      <span class="passage__seal-head"><span class="chip">15h00</span></span>
-      <span class="passage__num" aria-hidden="true">3</span>
-      <span class="passage__emoji" aria-hidden="true">💦</span>
-      <span class="passage__tease">Instant mouillé</span>
-      <span class="bellyband"><span>Se dévoile le 14 août à 20h00</span></span>
-    </div>
+    <!-- ==== 15h00 ==== -->
+    <article class="moment reveal-on-scroll" id="moment-3" data-index="3" data-unlock="13h30">
+      <div class="moment__sealed">
+        <p class="moment__time">15h00 <span class="moment__emoji" aria-hidden="true">💦</span></p>
+        <p class="moment__tease">Instant mouillé.</p>
+        <p class="redacted"><span>se dévoile le 15 août à 13h30</span></p>
+      </div>
 
-    <div class="passage__face passage__face--open" hidden>
-      <figure class="passage__photo">
-        <img src="img/spa-piscine.jpg" alt="La piscine du spa Da Vinci, grotte bleue aux bougies" loading="lazy" />
-      </figure>
-      <div class="passage__body">
-        <p class="tag">15h00 · Moment 3</p>
-        <h2 class="passage__title">Spa privé &amp; Champagne</h2>
-        <p class="passage__venue">Hôtel Da Vinci <span class="stars">★★★★</span></p>
-        <p class="badge"><span aria-hidden="true">✓</span> Confirmée · privatisation pour deux</p>
-        <ul class="passage__list">
-          <li>Bassin, jets hydromassants, nage à contre-courant</li>
-          <li>Bougies, mosaïque, l'Homme de Vitruve en fresque</li>
-          <li>Bouteille de champagne 37,5&nbsp;cl</li>
+      <div class="moment__open" hidden>
+        <p class="moment__time">15h00 <span class="moment__emoji" aria-hidden="true">💦</span></p>
+        <h2 class="moment__title">Spa privé &amp; champagne</h2>
+        <p class="moment__venue">Hôtel Da Vinci ★★★★</p>
+        <p class="badge"><span aria-hidden="true">✓</span> Confirmée, privatisation pour deux</p>
+        <figure class="frame frame--tilt-r">
+          <img src="img/spa-piscine.jpg" alt="La piscine du spa Da Vinci, grotte bleue aux bougies" loading="lazy" />
+        </figure>
+        <ul class="moment__list">
+          <li>Bassin, jets hydromassants, nage à contre-courant.</li>
+          <li>Bougies, mosaïque, l'Homme de Vitruve en fresque.</li>
+          <li>Bouteille de champagne 37,5&nbsp;cl.</li>
         </ul>
-        <figure class="passage__photo passage__photo--inline">
+        <figure class="frame frame--tilt-l frame--small">
           <img src="img/spa-champagne.jpg" alt="Champagne, fraises et bougies au bord du bassin" loading="lazy" />
         </figure>
-        <p class="passage__desc">
-          Arrivée à 14h45 pour le vestiaire, séance de 15h00 à 15h45. Rhabillage tranquille, le monde peut attendre.
+        <p class="moment__desc">
+          Arrivée à 14h45 pour le vestiaire, séance de 15h00 à 15h45.
+          Rhabillage tranquille, le monde peut attendre.
         </p>
-        <p class="passage__addr">
-          25 rue des Saints-Pères, 75006 Paris
-        </p>
-        <p class="passage__end">Fin vers 16h00</p>
+        <p class="moment__addr">25 rue des Saints-Pères, 75006 Paris</p>
+        <p class="moment__end">Fin vers 16h00</p>
       </div>
-    </div>
-  </article>
+    </article>
 
-  <p class="walk"><span class="walk__line"></span><span class="walk__label">🚶‍♀️ 5 min à pied</span><span class="walk__line"></span></p>
+    <p class="walk reveal-on-scroll"><span>🚶‍♀️ 5 minutes à pied</span></p>
 
-  <!-- ==== MOMENT 04 ==== -->
-  <article class="passage" id="passage-4" data-index="4">
-    <div class="passage__face passage__face--sealed">
-      <span class="passage__seal-head"><span class="chip">16h00</span></span>
-      <span class="passage__num" aria-hidden="true">4</span>
-      <span class="passage__emoji" aria-hidden="true">🍸</span>
-      <span class="passage__tease">Dévoile ton art gustatif</span>
-      <span class="bellyband"><span>Se dévoile le 14 août à 20h00</span></span>
-    </div>
-
-    <div class="passage__face passage__face--open" hidden>
-      <figure class="passage__photo">
-        <img src="img/cocktail.jpg" alt="Cocktail au comptoir, romarin et orange séchée" loading="lazy" />
-      </figure>
-      <div class="passage__body">
-        <p class="tag">16h00 · Moment 4</p>
-        <h2 class="passage__title">Atelier mixologie <span class="amp">&amp;</span> cocktail</h2>
-        <p class="passage__venue">Madison Hôtel <span class="stars">★★★★</span></p>
-        <p class="badge"><span aria-hidden="true">✓</span> Confirmée · pour deux</p>
-        <p class="passage__desc">
-          On enchaîne en douceur. Compte une heure trente à deux heures selon la formule. Tu repars avec des recettes que tu ressortiras à ton prochain apéro, et une fierté légitime.
-        </p>
-        <p class="passage__addr">
-          143 boulevard Saint-Germain, 75006 Paris<br/>
-          01 40 51 60 00 · Métro Saint-Germain-des-Prés (4), en face
-        </p>
-        <p class="passage__end">Fin vers 18h00</p>
+    <!-- ==== 16h00 ==== -->
+    <article class="moment reveal-on-scroll" id="moment-4" data-index="4" data-unlock="14h30">
+      <div class="moment__sealed">
+        <p class="moment__time">16h00 <span class="moment__emoji" aria-hidden="true">🍸</span></p>
+        <p class="moment__tease">Dévoile ton art gustatif.</p>
+        <p class="redacted"><span>se dévoile le 15 août à 14h30</span></p>
       </div>
-    </div>
-  </article>
 
-  <p class="walk"><span class="walk__line"></span><span class="walk__label">🚶‍♀️ Quartier libre, tout est à moins de 15 min</span><span class="walk__line"></span></p>
+      <div class="moment__open" hidden>
+        <p class="moment__time">16h00 <span class="moment__emoji" aria-hidden="true">🍸</span></p>
+        <h2 class="moment__title">Atelier mixologie</h2>
+        <p class="moment__venue">Madison Hôtel ★★★★</p>
+        <p class="badge"><span aria-hidden="true">✓</span> Confirmée, pour deux</p>
+        <figure class="frame frame--tilt-r">
+          <img src="img/cocktail.jpg" alt="Cocktail au comptoir, romarin et orange séchée" loading="lazy" />
+        </figure>
+        <p class="moment__desc">
+          On enchaîne en douceur. Compte une heure trente à deux heures selon la formule.
+          Tu repars avec des recettes que tu ressortiras à ton prochain apéro,
+          et une fierté légitime.
+        </p>
+        <p class="moment__addr">143 boulevard Saint-Germain, 75006 Paris · 01 40 51 60 00</p>
+        <p class="moment__end">Fin vers 18h00</p>
+      </div>
+    </article>
 
-  <!-- ==== MOMENT 05 ==== -->
-  <article class="passage" id="passage-5" data-index="5">
-    <div class="passage__face passage__face--sealed">
-      <span class="passage__seal-head"><span class="chip">18h00</span></span>
-      <span class="passage__num" aria-hidden="true">5</span>
-      <span class="passage__emoji" aria-hidden="true">🥂</span>
-      <span class="passage__tease">Apéroooo</span>
-      <span class="bellyband"><span>Se dévoile le 14 août à 20h00</span></span>
-    </div>
+    <p class="walk reveal-on-scroll"><span>Quartier libre, tout est à moins de 15 minutes</span></p>
 
-    <div class="passage__face passage__face--open" hidden>
-      <div class="passage__body">
-        <p class="tag">18h00 · Moment 5</p>
-        <h2 class="passage__title">Apéroooo</h2>
-        <p class="passage__venue">Quartier libre</p>
-        <ul class="passage__list">
-          <li>Le Jardin du Luxembourg, 10 minutes. Chaises vertes, ombre, fermeture au coucher du soleil.</li>
+    <!-- ==== 18h00 ==== -->
+    <article class="moment reveal-on-scroll" id="moment-5" data-index="5" data-unlock="16h30">
+      <div class="moment__sealed">
+        <p class="moment__time">18h00 <span class="moment__emoji" aria-hidden="true">🥂</span></p>
+        <p class="moment__tease">Apéroooo.</p>
+        <p class="redacted"><span>se dévoile le 15 août à 16h30</span></p>
+      </div>
+
+      <div class="moment__open" hidden>
+        <p class="moment__time">18h00 <span class="moment__emoji" aria-hidden="true">🥂</span></p>
+        <h2 class="moment__title">Apéroooo</h2>
+        <p class="moment__venue">Quartier libre</p>
+        <ul class="moment__list">
+          <li>Le Jardin du Luxembourg, à 10 minutes. Chaises vertes, ombre, fermeture au coucher du soleil.</li>
           <li>Les quais de Seine au soleil couchant.</li>
           <li>Une terrasse, un verre, et rien d'autre.</li>
         </ul>
-        <p class="passage__desc">
-          Bloody mary au brunch, champagne à 15h, cocktails à 16h. Bois aussi de l'eau. La soirée sera meilleure si tu marques une pause ici.
+        <p class="moment__desc">
+          Bloody mary au brunch, champagne à 15h, cocktails à 16h. Bois aussi de l'eau.
+          La soirée sera meilleure si tu marques une pause ici.
         </p>
-        <p class="passage__end">À 19h45, direction rive droite</p>
+        <p class="moment__end">À 19h45, direction rive droite</p>
       </div>
-    </div>
-  </article>
+    </article>
 
-  <p class="walk"><span class="walk__line"></span><span class="walk__label">🚇 8 min de métro, ou 🚶‍♀️ 17 min à pied</span><span class="walk__line"></span></p>
+    <p class="walk reveal-on-scroll"><span>🚇 8 minutes de métro, ou 🚶‍♀️ 17 à pied</span></p>
 
-  <!-- ==== MOMENT 06 ==== -->
-  <article class="passage" id="passage-6" data-index="6">
-    <div class="passage__face passage__face--sealed">
-      <span class="passage__seal-head"><span class="chip">20h00</span></span>
-      <span class="passage__num" aria-hidden="true">6</span>
-      <span class="passage__emoji" aria-hidden="true">🎭</span>
-      <span class="passage__tease">Pestacle surprise</span>
-      <span class="bellyband"><span>Le final · 14 août à 20h00</span></span>
-    </div>
+    <!-- ==== 20h00 ==== -->
+    <article class="moment reveal-on-scroll" id="moment-6" data-index="6" data-unlock="18h30">
+      <div class="moment__sealed">
+        <p class="moment__time">20h00 <span class="moment__emoji" aria-hidden="true">🎭</span></p>
+        <p class="moment__tease">Pestacle surprise.</p>
+        <p class="redacted"><span>se dévoile le 15 août à 18h30</span></p>
+      </div>
 
-    <div class="passage__face passage__face--open" hidden>
-      <figure class="passage__photo">
-        <img src="img/fridge.jpg" alt="La salle du Fridge Comedy Club, bougies et néon bleu" loading="lazy" />
-      </figure>
-      <div class="passage__body">
-        <p class="tag">20h00 · Moment 6</p>
-        <h2 class="passage__title">Fridge Comedy Club</h2>
-        <p class="passage__venue">Le final</p>
+      <div class="moment__open" hidden>
+        <p class="moment__time">20h00 <span class="moment__emoji" aria-hidden="true">🎭</span></p>
+        <h2 class="moment__title">Fridge Comedy Club</h2>
+        <p class="moment__venue">Le final</p>
         <p class="badge"><span aria-hidden="true">✓</span> Confirmée</p>
-
+        <figure class="frame frame--tilt-l">
+          <img src="img/fridge.jpg" alt="La salle du Fridge Comedy Club, bougies et néon bleu" loading="lazy" />
+        </figure>
         <div class="duo">
           <div class="duo__opt">
             <p class="duo__tag">Ligne 4</p>
@@ -309,50 +283,47 @@
             <p class="duo__addr">17 minutes, si le soir est doux</p>
           </div>
         </div>
-
-        <p class="passage__desc">
-          Verre à la main, rires en salle, bougies sur les tables. La journée s'est bâtie pour arriver ici, détendue, gaie, prête à écouter des gens plus drôles que la moyenne.
+        <p class="moment__desc">
+          Verre à la main, rires en salle, bougies sur les tables. La journée s'est bâtie
+          pour arriver ici, détendue, gaie, prête à écouter des gens plus drôles que la moyenne.
         </p>
-        <p class="passage__addr">
-          164 rue Saint-Denis, 75002 Paris
-        </p>
-        <div class="maison-note">
-          <p>Bon anniversaire, Laure.</p>
-        </div>
+        <p class="moment__addr">164 rue Saint-Denis, 75002 Paris</p>
+        <p class="moment__end">Bon anniversaire, Laure.</p>
       </div>
-    </div>
-  </article>
+    </article>
 
-</section>
+  </section>
 
 
-<!-- ============ RÉCAP FINAL ============ -->
-<section class="finale" id="finale" hidden>
-  <div class="finale__card">
-    <div class="maison-note maison-note--finale">
-      <span class="monogram monogram--warm" aria-hidden="true">
-        <svg viewBox="0 0 80 80" width="34" height="34">
-          <path d="M40 62 C 16 46, 11 30, 20 22 C 27 16, 37 19, 40 27 C 43 19, 53 16, 60 22 C 69 30, 64 46, 40 62 Z"
-                fill="none" stroke="currentColor" stroke-width="2.4"/>
-        </svg>
-      </span>
-      <p class="maison-note__letter">
-        Laure, je te souhaite un incroyable anniversaire pour tes 40 ans.
-      </p>
-      <p class="maison-note__letter">
-        Loin des yeux mais proche du cœur, j'ai voulu te confectionner une journée à ta hauteur tout en étant à distance. Parce que tu le mérites, parce que tu prends soin de tes proches tout le temps et qu'il est temps qu'on prenne soin de toi.
-      </p>
-      <p class="maison-note__letter">
-        Tu es une de mes meilleures amies, une personne loyale sur qui je pourrais toujours compter, dans les bons comme les moins bons moments. Tu es une oreille attentive, tu es attentionnée avec moi, tu m'apportes de la paix, de la joie, beaucoup de douceur et un autre chez moi.
-      </p>
-      <p class="maison-note__letter">
-        Merci pour tout ce que tu m'apportes.<br/>
-        Je t'aime fort ma copine.
-      </p>
-      <p class="maison-note__sign">Ton amie qui t'aime fort</p>
-    </div>
-  </div>
-</section>
+  <!-- ============ LA FIN DE LA LETTRE ============ -->
+  <section class="letter-close reveal-on-scroll" id="finale" hidden>
+    <p class="letter-close__body">
+      Laure, je te souhaite un incroyable anniversaire pour tes 40 ans.
+    </p>
+    <p class="letter-close__body">
+      Loin des yeux mais proche du cœur, j'ai voulu te confectionner une journée à ta hauteur
+      tout en étant à distance. Parce que tu le mérites, parce que tu prends soin de tes proches
+      tout le temps et qu'il est temps qu'on prenne soin de toi.
+    </p>
+    <p class="letter-close__body">
+      Tu es une de mes meilleures amies, une personne loyale sur qui je pourrais toujours
+      compter, dans les bons comme les moins bons moments. Tu es une oreille attentive,
+      tu es attentionnée avec moi, tu m'apportes de la paix, de la joie, beaucoup de douceur
+      et un autre chez moi.
+    </p>
+    <p class="letter-close__body">
+      Merci pour tout ce que tu m'apportes.<br/>
+      Je t'aime fort ma copine.
+    </p>
+    <p class="letter-close__sign">Ton amie qui t'aime fort</p>
+    <span class="letter-close__seal" aria-hidden="true">
+      <svg viewBox="0 0 80 80" width="54" height="54">
+        <circle cx="40" cy="40" r="38" fill="currentColor" opacity=".95"/>
+        <path d="M40 56 C 24 45, 21 34, 27 29 C 31 25, 37 27, 40 33 C 43 27, 49 25, 53 29 C 59 34, 56 45, 40 56 Z"
+              fill="none" stroke="#FBF7EF" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </section>
 
 </main>
 
@@ -363,6 +334,6 @@
   <p class="foot__line foot__line--dim">15.08.2026 · Saint-Germain-des-Prés</p>
 </footer>
 
-<script src="script.js?v=5"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>

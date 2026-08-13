@@ -1,32 +1,37 @@
-// Maison Laure, Collection N° 40.
-// Le coeur ouvre la porte. Les passages restent scelles
-// jusqu'au 15 aout 2026, 9h00, heure du telephone de Laure.
+// La Correspondance, pour Laure.
+// L'enveloppe s'ouvre au tap. Le 14 aout a 20h00 : le sac et la tenue.
+// Le 15 aout : chaque moment se devoile 1h30 avant son heure.
+// Le 15 aout a 20h00 : le mot de la fin.
 
 (() => {
-  const REVEAL_AT = new Date(2026, 7, 14, 20, 0, 0);
+  const VEILLE_AT = new Date(2026, 7, 14, 20, 0, 0);
+  const LETTER_AT = new Date(2026, 7, 15, 20, 0, 0);
+  const DAY = { y: 2026, m: 7, d: 15 };
   const PREVIEW_KEY = 'laure40.preview';
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const gate = document.getElementById('gate');
-  const heart = document.getElementById('gate-heart');
-  const passages = Array.from(document.querySelectorAll('.passage'));
-  const dots = Array.from(document.querySelectorAll('#dots i'));
+  const seal = document.getElementById('gate-heart');
+  const moments = Array.from(document.querySelectorAll('.moment'));
+  const walks = Array.from(document.querySelectorAll('.walk'));
   const finale = document.getElementById('finale');
-  const countdown = document.getElementById('countdown');
   const countdownText = document.getElementById('countdown-text');
-  const maisonWord = document.getElementById('maison-word');
+  const veilleSealed = document.getElementById('veille-sealed');
+  const veilleContent = document.getElementById('veille-content');
 
-  let revealed = false;
-
-  /* ---- La porte ---- */
-  heart.addEventListener('click', () => {
-    gate.classList.add('is-open');
+  /* ---- L'enveloppe qui s'ouvre ---- */
+  seal.addEventListener('click', () => {
+    if (gate.classList.contains('is-opening')) return;
+    gate.classList.add('is-opening');
+    setTimeout(() => gate.classList.add('is-out'), 520);
+    setTimeout(() => gate.classList.add('is-gone'), 1500);
     setTimeout(() => {
       gate.remove();
       document.body.classList.remove('gate-locked');
-    }, 820);
+    }, 2200);
   });
 
-  /* ---- Revelation ---- */
+  /* ---- Revelation au fil de l'eau ---- */
   function isForced() {
     try {
       return new URLSearchParams(location.search).has('copine')
@@ -34,74 +39,100 @@
     } catch { return false; }
   }
 
-  function shouldReveal() {
-    return Date.now() >= REVEAL_AT.getTime() || isForced();
+  function unlockDate(m) {
+    const parts = (m.dataset.unlock || '0h00').split('h');
+    return new Date(DAY.y, DAY.m, DAY.d, Number(parts[0]), Number(parts[1] || 0), 0);
   }
 
-  function openPassage(p, animated) {
-    const sealed = p.querySelector('.passage__face--sealed');
-    const open = p.querySelector('.passage__face--open');
+  let veilleOpen = false;
+  function openVeille() {
+    if (veilleOpen) return;
+    veilleOpen = true;
+    veilleSealed.hidden = true;
+    veilleContent.hidden = false;
+  }
+
+  function openMoment(m, animated) {
+    if (m.classList.contains('is-open')) return;
+    const sealed = m.querySelector('.moment__sealed');
+    const open = m.querySelector('.moment__open');
     sealed.hidden = true;
     open.hidden = false;
     if (!animated) open.style.animation = 'none';
-    p.classList.add('is-open');
-    const idx = Number(p.dataset.index) - 1;
-    if (dots[idx]) dots[idx].classList.add('is-on');
+    m.classList.add('is-open');
+    const w = walks[Number(m.dataset.index) - 1];
+    if (w) w.classList.add('is-shown');
   }
 
-  function reveal(animated) {
-    if (revealed) return;
-    revealed = true;
-    document.body.classList.add('is-revealed');
+  let letterShown = false;
+  function showLetter() {
+    if (letterShown) return;
+    letterShown = true;
+    finale.hidden = false;
+  }
 
-    passages.forEach((p, i) => {
-      if (animated) setTimeout(() => openPassage(p, true), i * 220);
-      else openPassage(p, false);
+  function openAll(animated) {
+    openVeille();
+    moments.forEach((m, i) => {
+      if (animated) setTimeout(() => openMoment(m, true), i * 240);
+      else openMoment(m, false);
+    });
+    setTimeout(showLetter, animated ? moments.length * 240 + 400 : 0);
+    countdownText.textContent = 'Bon anniversaire, Laure';
+  }
+
+  const pad = (n) => String(n).padStart(2, '0');
+  const fmt = (d) => d.getHours() + 'h' + pad(d.getMinutes());
+
+  function daysUntil(target) {
+    const now = new Date();
+    const a = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const b = new Date(target.getFullYear(), target.getMonth(), target.getDate());
+    return Math.round((b - a) / 86400000);
+  }
+
+  function tick(animated) {
+    if (isForced()) { openAll(animated); return; }
+    const now = Date.now();
+
+    if (now >= VEILLE_AT.getTime()) openVeille();
+
+    let next = null;
+    moments.forEach((m) => {
+      const u = unlockDate(m).getTime();
+      if (now >= u) openMoment(m, animated);
+      else if (next === null || u < next) next = u;
     });
 
-    const finaleDelay = animated ? passages.length * 220 + 500 : 0;
-    setTimeout(() => {
-      finale.hidden = false;
-      if (animated) finale.classList.add('is-in');
-    }, finaleDelay);
+    if (now >= LETTER_AT.getTime()) showLetter();
 
-    countdownText.textContent = 'Bon anniversaire, Laure';
-    if (maisonWord) {
-      maisonWord.innerHTML = 'Tout est là.<br/>Laisse-toi porter.';
-    }
-  }
-
-  /* ---- Compte a rebours ---- */
-  function daysUntilReveal() {
-    const now = new Date();
-    const startToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const startReveal = new Date(2026, 7, 14);
-    return Math.round((startReveal - startToday) / 86400000);
-  }
-
-  function tick() {
-    if (shouldReveal()) {
-      reveal(true);
-      return;
-    }
-    const d = daysUntilReveal();
-    if (d > 1) {
-      countdownText.textContent = 'Révélation le 14 août · 20h00 · J-' + d;
-    } else if (d === 1) {
-      countdownText.textContent = 'Révélation demain soir · 20h00';
+    /* le fil du compte a rebours */
+    if (now >= LETTER_AT.getTime()) {
+      countdownText.textContent = 'Bon anniversaire, Laure';
+    } else if (now < VEILLE_AT.getTime()) {
+      const d = daysUntil(VEILLE_AT);
+      if (d > 1) {
+        countdownText.textContent = 'Première révélation le 14 août à 20h00 · J-' + d;
+      } else if (d === 1) {
+        countdownText.textContent = 'Première révélation demain soir, à 20h00';
+      } else {
+        const ms = VEILLE_AT.getTime() - now;
+        countdownText.textContent = 'Ce soir à 20h00 · dans '
+          + Math.floor(ms / 3600000) + 'h' + pad(Math.floor((ms % 3600000) / 60000));
+      }
+    } else if (next !== null) {
+      const nd = new Date(next);
+      const today = daysUntil(nd) === 0;
+      countdownText.textContent = (today ? 'La suite se dévoile à ' : 'La suite se dévoile demain à ') + fmt(nd);
     } else {
-      countdownText.textContent = "C'est ce soir · rendez-vous à 20h00";
+      countdownText.textContent = 'Le mot de la fin arrive à 20h00';
     }
   }
 
-  if (shouldReveal()) {
-    reveal(false);
-  } else {
-    tick();
-    setInterval(tick, 30000);
-  }
+  tick(false);
+  setInterval(() => tick(true), 30000);
 
-  /* ---- Registre : coche du sac ---- */
+  /* ---- Le sac : coche persistante ---- */
   const SAC_KEY = 'laure40.sac';
   document.querySelectorAll('.registry__row').forEach((row) => {
     const box = row.querySelector('.registry__box');
@@ -123,7 +154,7 @@
     });
   });
 
-  /* ---- Apercu pour Elisabeth : taper "laure" ---- */
+  /* ---- Apercu : taper "laure" ---- */
   (() => {
     let buf = '';
     document.addEventListener('keydown', (e) => {
@@ -132,8 +163,55 @@
       if (buf === 'laure') {
         buf = '';
         try { sessionStorage.setItem(PREVIEW_KEY, '1'); } catch {}
-        reveal(true);
+        openAll(true);
       }
     });
   })();
+
+  /* ---- Apparitions au scroll ---- */
+  const toReveal = document.querySelectorAll('.reveal-on-scroll');
+  if (reduced || !('IntersectionObserver' in window)) {
+    toReveal.forEach(el => el.classList.add('is-in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    toReveal.forEach(el => io.observe(el));
+  }
+
+  /* ---- Parallax ---- */
+  if (!reduced) {
+    const layers = Array.from(document.querySelectorAll('[data-parallax]'))
+      .map(el => ({ el, speed: parseFloat(el.dataset.parallax) || 0 }));
+    let ticking = false;
+
+    function apply() {
+      const y = window.scrollY;
+      const vh = window.innerHeight;
+      layers.forEach(({ el, speed }) => {
+        el.style.transform = 'translate3d(0,' + (y * speed).toFixed(1) + 'px,0)';
+      });
+      document.querySelectorAll('.frame img').forEach((img) => {
+        const r = img.getBoundingClientRect();
+        if (r.bottom < -80 || r.top > vh + 80) return;
+        const progress = (r.top + r.height / 2 - vh / 2) / vh;
+        const shift = Math.max(-8, Math.min(8, -progress * 10));
+        img.style.transform = 'translate3d(0,' + shift.toFixed(2) + '%,0) scale(1.16)';
+      });
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(apply);
+        ticking = true;
+      }
+    }, { passive: true });
+    apply();
+  }
 })();
